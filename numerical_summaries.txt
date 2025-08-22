@@ -1,0 +1,130 @@
+EXERCISE 1: Simulating Beta Prior Distributions
+==================================================
+
+Beta(8, 12):
+  Mean = 0.4
+  Variance = 0.0114
+  Interpretation: Moderate belief centered at 0.4, fairly informative
+
+Beta(4, 6):
+  Mean = 0.4
+  Variance = 0.0218
+  Interpretation: Weak belief centered at 0.4, somewhat informative
+
+Beta(2, 2):
+  Mean = 0.5
+  Variance = 0.05
+  Interpretation: Uniform on (0,1) with slight peak at 0.5, weakly informative
+
+Beta(1, 1):
+  Mean = 0.5
+  Variance = 0.0833
+  Interpretation: Uniform distribution, non-informative
+
+Beta(0.5, 0.5):
+  Mean = 0.5
+  Variance = 0.125
+  Interpretation: U-shaped, Jeffreys prior, non-informative
+
+
+EXERCISE 2: Comparing Summary Statistics for Beta(4, 6)
+==================================================
+
+Method (a) - Theoretical calculations:
+  Mean = 0.4
+  Variance = 0.021818
+
+Method (b) - Empirical calculations from 10,000 samples:
+  Mean = 0.399421
+  Variance = 0.021971
+
+Comparison:
+  Mean difference: 0.000579
+  Variance difference: 0.000153
+
+Conclusion: Large sample approximation closely matches theoretical values,
+confirming that random sampling provides accurate estimates of distribution properties.
+
+
+EXERCISE 3: Simulating Predictive Distributions
+==================================================
+
+Simulating Beta(4, 6) prior...
+Simulating Beta(2, 2) prior...
+Simulating Beta(1, 1) prior...
+
+Summary of predictive distributions:
+Beta(4,6) - Mean: 4.79, SD: 2.4
+Beta(2,2) - Mean: 5.91, SD: 3.1
+Beta(1,1) - Mean: 6.02, SD: 3.74
+
+Observations on predictive distributions:
+- Beta(4,6): Predictive distribution concentrated around 4-5 successes
+- Beta(2,2): More spread, centered around 6 successes
+- Beta(1,1): Uniform prior leads to most spread predictive distribution
+- As priors become less informative, predictive distributions become more spread out
+
+
+EXERCISE 4: Analyzing Phase-2 Trial with Binary Endpoint
+==================================================
+
+Prior: Beta(8, 12)
+Data: 21 responses out of 45 subjects
+Posterior: Beta(29, 36)
+
+(i) Posterior summaries:
+  Mean: 0.4462
+  Median: 0.4451
+  95% Credible Interval: [0.3269, 0.5664]
+
+(ii) Comparison with Standard of Care:
+  SoC response rate: 0.265
+  P(experimental > SoC) = 0.9989
+  This represents 99.89% probability that the experimental drug is better than SoC
+
+(iii) Additional posterior probabilities:
+  P(response rate > 0.3) = 0.991
+  P(response rate > 0.4) = 0.7761
+  P(response rate > 0.5) = 0.1939
+
+Interpretation:
+The posterior distribution shows strong evidence that the experimental
+treatment has a higher response rate than the standard of care.
+With 99.9% probability of superiority,
+this would likely support advancing to Phase 3 trials.
+
+
+EXERCISE 5: Simulating Predictive Distributions for Count Data
+==================================================
+
+Simulating Gamma(8, 2) prior...
+Simulating Gamma(4, 4) prior...
+
+Prior specifications and their implications:
+Gamma(8, 2): Mean = 4, Variance = 2
+  - Higher mean count expectation (4 events per subject)
+  - More concentrated around the mean
+Gamma(4, 4): Mean = 1, Variance = 0.25
+  - Lower mean count expectation (1 event per subject)
+  - Less concentrated, allowing for more uncertainty
+
+Summary of predictive distributions for sample means:
+Gamma(8,2) - Mean: 3.975, SD: 1.467
+Gamma(4,4) - Mean: 1.003, SD: 0.552
+
+Observations on the change in distribution of y:
+- Different priors lead to different centers for the predictive distribution
+- The Gamma(8,2) prior produces sample means centered around 4
+- The Gamma(4,4) prior produces sample means centered around 1
+- The spread of the predictive distribution reflects both prior uncertainty and sampling variability
+
+Theoretical vs. Empirical comparison:
+For Gamma(8,2) prior:
+  Theoretical mean of λ: 4
+  Empirical mean of sample means: 3.975
+For Gamma(4,4) prior:
+  Theoretical mean of λ: 1
+  Empirical mean of sample means: 1.003
+
+Conclusion: The predictive distributions correctly reflect the prior beliefs
+about the underlying Poisson rate parameter λ.
